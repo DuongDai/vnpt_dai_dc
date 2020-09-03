@@ -1,0 +1,25 @@
+<div class='position'>	
+	<div class='container'>
+		<div class='row'>
+		</div>
+		<a [routerLink]="['/admin/position-add']" class='btn btn-success'>Thêm chức vụ</a>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên chức vụ</th>
+					<th>#</th>
+				</tr>
+			</thead>
+			<tbody *ngIf="countResults > 0">
+				<tr *ngFor = "let item of listPositions; let i = index">
+					<td>{{i+1}}</td>
+					<td>{{item.tenChucVu}}</td>        
+					<td><span><a [routerLink]="['/admin/position-edit/' + item.id]"><i class="fal fa-edit"></i></a> |  
+						<a style='color:red' (click)="deleteChucVu(item.id)"><i class="fas fa-trash-alt"></i></a></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</div>

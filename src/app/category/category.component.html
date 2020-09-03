@@ -1,0 +1,30 @@
+<div class='form_category'>
+	<div class="container">
+		<div class=row>
+			<a [routerLink]="['/category-add']" class='btn btn-success'>Thêm mới</a>
+			<table class="table table-bordered">
+			  <thead>
+				    <th>Mã danh mục</th>
+					<th>Tên danh mục</th>
+					<th>#</th>
+				</thead>
+				<tbody *ngIf="total == 0">
+					<tr>
+						<td colSpan="3">Không có dữ liệu</td>
+					</tr>
+				</tbody>
+				<tbody *ngIf="total > 0">
+					<tr *ngFor = "let item of listCategory">
+						<td >{{item.id}}</td>
+						<td >{{item.categoryName}}</td>
+						<td><a [routerLink]="['/category-edit/' + item.id]" routerLinkActive="router-link-active" >
+                    Chỉnh sửa
+                </a>|<a>Sửa</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</div>
+

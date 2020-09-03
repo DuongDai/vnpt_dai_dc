@@ -1,0 +1,19 @@
+
+<div class='position-edit'>
+	<div class='container'>
+		<div class='row'>
+			<a [routerLink]="['/admin/position']">Quay lại</a>
+			<form [formGroup]="model.formGroup" (ngSubmit) = "submitData()">
+				<div class="form-group">
+					<label for="email">Tên danh mục</label>
+					<input type="text" class="form-control" [(ngModel)]="model.tenChucVu" formControlName="tenChucVu"/>
+					<p class="text-muted" [hidden]="!(model.formGroup.controls['tenChucVu'].hasError('required'))">
+						Vui Lòng nhập tên chức vụ
+					</p>
+				</div>
+				<button type="submit" class="btn btn-primary" [disabled]="!(model.formGroup.valid)">Lưu thay đổi</button>
+			</form>
+		</div>		
+	</div>	
+</div>
+

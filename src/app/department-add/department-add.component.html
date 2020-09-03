@@ -1,0 +1,17 @@
+
+<div class='department-add'>
+	<div class='container'>
+		<a [routerLink]="['/admin/department']">Quay lại</a>
+		<form [formGroup]="model.formGroup" (ngSubmit) = "submitData()">
+			<div class="form-group">
+				<label for="tenPhongBan">Tên danh mục:</label>
+				<input class='form-control' type="text" [(ngModel)]="model.tenPhongBan" formControlName="tenPhongBan"/>
+				<p class="text-muted" [hidden]="!(model.formGroup.controls['tenPhongBan'].hasError('required'))">
+					Vui Lòng nhập tên phòng ban
+				</p>
+			</div>
+			<button type="submit" class="btn btn-primary" [disabled]="!(model.formGroup.valid)">Lưu</button>
+		</form>
+	</div>	
+</div>
+

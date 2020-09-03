@@ -1,0 +1,41 @@
+<div class='form-add-employee'>
+	<div class='container'>
+		<a [routerLink]="['/admin/employee']">Quay lại</a>
+		<form [formGroup]="model.formGroup" (ngSubmit) = "submitData()">
+			<div class="form-group">
+				<label for="">Tên nhân viên:</label>		
+				<input type="text" class="form-control" [(ngModel)]="model.hoTen" formControlName="hoTen"/>
+
+			</div>
+			<div class="form-group">
+				<label for="">Email:</label>		
+				<input type="email" class="form-control" [(ngModel)]="model.mail" formControlName="mail"/>      
+			</div>
+			<div class="form-group">
+				<label for="">Số điện thoại:</label>		
+				<input type="text" class="form-control" [(ngModel)]="model.soDienThoai" formControlName="soDienThoai"/>      
+			</div>
+			<div class="form-group">
+				<label for="">Năm sinh:</label>		
+				<input type="date" class="form-control" [(ngModel)]="model.namSinh" formControlName="namSinh"/>
+
+			</div>
+			<div class="form-group">
+				<label for="maChucVu">Chức vụ:</label>
+				<select [(ngModel)]="model.maChucVu"  formControlName="maChucVu" class="form-control">
+					<option ngelected="mySel" *ngFor="let chucVu of listChucVu" [ngValue]="chucVu.id">{{chucVu.tenChucVu}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="maPhongBan">Phòng ban:</label>
+				<select [(ngModel)]="model.maPhongBan" formControlName="maPhongBan" class="form-control">
+					<option *ngFor="let phongBan of listPhongBan" [ngValue]="phongBan.id" >{{phongBan.tenPhongBan}}</option>
+				</select>     
+			</div>
+			<button type="submit" class="btn btn-primary" [disabled]="!(model.formGroup.valid)">Xác nhận</button>
+		</form>
+	</div>
+	
+</div>
+
+

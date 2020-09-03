@@ -1,0 +1,13 @@
+<a [routerLink]="['/category']">Về lại danh sách</a>
+
+<form [formGroup]="model.formGroup" (ngSubmit) = "submitData()">
+	<div class="form-group">
+		<label for="">Tên danh mục</label>
+		<input type="text" [(ngModel)]="model.categoryName" formControlName="categoryName"/>
+        <p class="text-muted" [hidden]="!(model.formGroup.controls['categoryName'].hasError('required'))">
+        	Vui Lòng nhập tên danh mục
+        </p>
+	</div>
+
+     <button type="submit" class="btn btn-primary" [disabled]="!(model.formGroup.valid)">Lưu</button>
+</form>
